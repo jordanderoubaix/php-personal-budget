@@ -9,11 +9,11 @@
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.4.1/build/reset-fonts-grids/reset-fonts-grids.css" />
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.4.1/build/assets/skins/sam/skin.css" />
 		<link rel="stylesheet" type="text/css" href="<?=$this->config->item('base_url')?>resources/css/main.css" />
-		<script type="text/javascript" src="<?=base_url()?>resources/js/yui/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-		<script type="text/javascript" src="<?=base_url()?>resources/js/yui/build/json/json-min.js"></script>
-		<script type="text/javascript" src="<?=base_url()?>resources/js/yui/build/element/element-beta-min.js"></script>		
-		<script type="text/javascript" src="<?=base_url()?>resources/js/yui/build/datasource/datasource-beta-min.js"></script>
-		<script type="text/javascript" src="<?=base_url()?>resources/js/yui/build/charts/charts-experimental-debug.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/json/json-min.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/element/element-beta-min.js"></script>		
+		<script type="text/javascript" src="<?=yui_url()?>/build/datasource/datasource-beta-min.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/charts/charts-experimental-debug.js"></script>
 	</head>
 	
 	<body class="yui-skin-sam" style="text-align: left; margin-top: 10px;">
@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<script type="text/javascript">
-			YAHOO.widget.Chart.SWFURL = "<?=base_url()?>resources/js/yui/build/charts/assets/charts.swf";
+			YAHOO.widget.Chart.SWFURL = "<?=yui_url()?>/build/charts/assets/charts.swf";
 			var chart_data = [
 			<?php
 			$data_string = "";
