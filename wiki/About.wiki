@@ -1,0 +1,1 @@
+PHP Personal Budget is built on top of [http://www.codeigniter.com CodeIgniter].
