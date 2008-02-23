@@ -1,0 +1,9 @@
+Installation Instructions:
+-------------------------------------------------
+1. Make sure you have created a database to use for PHP Personal Budget.
+
+2. PHP Personal Budget works best if it is in the base of the domain or sub-domain.
+
+3. Change the database setting in system/application/config/database.php.
+
+4. Go to http://<YOUR_DOMAIN OR SUBDOMAIN>/install and follow the instructions.
