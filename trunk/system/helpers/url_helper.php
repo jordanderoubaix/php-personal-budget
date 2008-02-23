@@ -64,6 +64,25 @@ if (! function_exists('base_url'))
 		return $CI->config->slash_item('base_url');
 	}
 }
+
+// ------------------------------------------------------------------------
+
+/**
+ * YUI URL
+ * 
+ * Return the "yui_url" item from your config file
+ * 
+ * @access	public
+ * @return	string
+ */
+if (! function_exists('yui_url'))
+{
+	function yui_url()
+	{
+		$CI =& get_instance();
+		return $CI->config->slash_item('yui_url');
+	}
+}
 	
 // ------------------------------------------------------------------------
 
