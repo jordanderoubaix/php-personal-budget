@@ -82,8 +82,10 @@ class BudgetModel extends Model {
 		//echo '<pre>' . print_r($categories,1) . '</pre>';
 		$budget_items = $this->get_month_budget_items($month_id);
 		$transaction_items = $this->get_month_transaction_items($month_id);
+		$actual_income = $this->get_actual_income($month_id);
+		$total_spent = $this->get_month_total_spent($month_id);
 		
-		$data_array = $this->build_data_array($month_id, $categories, $budget_items, $transaction_items);
+		$data_array = $this->build_data_array($month_id, $categories, $budget_items, $transaction_items, $actual_income, $total_spent);
 		//$data_json = $this->build_json_data($month_id, $data_array);
 		return $data_array;
 		//$results = '{"Restults":[';
@@ -109,7 +111,7 @@ class BudgetModel extends Model {
 		return $results;
 	}
 	
-	function build_data_array($month_id, $categories, $budget_items, $transaction_items) {
+	function build_data_array($month_id, $categories, $budget_items, $transaction_items, $actual_income, $total_spent) {
 		$results = array();
 		
 		$this->load->database();
@@ -120,7 +122,10 @@ class BudgetModel extends Model {
 		
 		$results['month_pretty_name'] = $result->pretty_name;
 		$results['month_year'] = $result->year;
-		
+		$results['actual_income'] = $actual_income;
+		$results['total_spent'] = $total_spent;
+		$results['amount_remaining'] = $actual_income - $total_spent;
+
 		foreach($categories as $category) {
 			$results['categories'][$category['category_id']]['category_pretty_name'] = $category['pretty_name'];
 		}
