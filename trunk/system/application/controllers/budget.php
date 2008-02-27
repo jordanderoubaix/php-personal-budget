@@ -163,8 +163,10 @@ class Budget extends Controller {
 		print $this->budget->get_available_months_json();
 	}
 
-	function temp() {
-		print "Hello world!";
+	function addthismonth() {
+		$this->load->model('BudgetModel', 'budget');
+
+		$this->budget->add_this_month();
 	}
 }
 

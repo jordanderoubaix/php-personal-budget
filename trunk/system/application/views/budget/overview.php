@@ -14,6 +14,7 @@
 		<script type="text/javascript" src="<?=yui_url()?>/build/element/element-beta-min.js"></script>		
 		<script type="text/javascript" src="<?=yui_url()?>/build/datasource/datasource-beta-min.js"></script>
 		<script type="text/javascript" src="<?=yui_url()?>/build/charts/charts-experimental-debug.js"></script>
+		<script type="text/javascript" src="<?=base_url()?>resources/js/prototype.js"></script>
 	</head>
 	
 	<body class="yui-skin-sam" style="text-align: left; margin-top: 10px;">
