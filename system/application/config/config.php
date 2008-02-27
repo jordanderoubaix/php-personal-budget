@@ -318,4 +318,9 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['yui_url'] = "http://yui.yahooapis.com/2.5.0";
 
+/**
+ * Constants
+ **/
+define ("MONTH_CREATED",		200);
+define ("MONTH_EXISTS",			201);
 ?>

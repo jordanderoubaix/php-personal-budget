@@ -387,6 +387,33 @@ class BudgetModel extends Model {
 		$query = $this->db->getwhere('Months', array('month_id' => $month_id));
 		print "<pre>" . print_r($query, 1) . "</pre>";
 	}
+
+	function add_this_month() {
+		$month_id = date('Ym');
+		$month_pretty_name = date('F');
+		$month_short_name = date('M');
+		$year = date('Y');
+
+		$check_result = $this->db->get_where('Months', array('month_id' =>  $month_id));
+		$check_result = $check_result->result();
+
+		if (count($check_result) == 0) {
+			$data = array(
+				'month_id' => $month_id,
+				'pretty_name' => $month_pretty_name,
+				'short_name' => $month_short_name,
+				'year' => $year,
+				'projected_income' => 0
+			);
+
+			$this->db->insert('Months', $data);
+
+			// Code 200 says the month was created successfully.
+			echo "{ code : " . MONTH_CREATED . " }";
+		} else {
+			echo "{ code : " . MONTH_EXISTS . " }";
+		}
+	}
 }
 
 ?>
