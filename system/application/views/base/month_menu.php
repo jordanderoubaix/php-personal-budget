@@ -1,3 +1,23 @@
+<script type="text/javascript">
+	function add_this_month() {
+		var url = "<?=base_url()?>budget/addthismonth";
+		new Ajax.Request(url, {
+			method: 'get',
+			onSuccess: function(transport) {
+				var json = transport.responseText.evalJSON();
+				if (json.code == <?=MONTH_CREATED?>) {
+					window.location.reload();
+				} else if (json.code == <?=MONTH_EXISTS?>) {
+					alert ("The current month already exists");
+				}
+			},
+			onFailure: function(transport) {
+				alert(transport.responseText);
+			}
+		});
+	}
+</script>
+
 <div id="main_menu" class="yuimenu" style="text-align: left;">
 	<div class="bd">
 		<h6 class="first-of-type">Income</h6>
@@ -27,7 +47,7 @@
 				<a class="yuimenuitemlabel" href="#renamecategory" onclick="enableRenameCategoryDialog()">Rename a Category</a>
 			</li-->
 		</ul>
-		<h6>Months</h6>
+		<h6>Months <img src="<?=base_url()?>resources/icons/add14x14.png" alt="Add the Current Month" title="Add the Current Month" style="cursor: pointer" onclick="add_this_month();"/></h6>
 		<ul class="first-of-type">
 			<?php
 			foreach($available_months as $month) {
