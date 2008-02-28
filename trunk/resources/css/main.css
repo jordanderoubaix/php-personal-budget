@@ -329,8 +329,8 @@ table
 
 .yui-skin-sam .mask {
 	/*background-color: #001E4C;*/
-	background-color: #fff;
-	opacity: 0.75;
+	/*background-color: #fff;*/
+	opacity: 0.50;
 }
 
 /****************************
@@ -441,6 +441,13 @@ ul {
 
 #doc3 #hd h1 {
 	color: #fff;
+}
+
+.yui-t2 {
+	position: absolute;
+	top: 10px;
+	right: 0px;
+	left: 0px;
 }
 
 #categories h1 {

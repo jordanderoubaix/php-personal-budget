@@ -15,10 +15,10 @@
 		<script type="text/javascript" src="<?=base_url()?>resources/js/prototype.js"></script>
 		<script type="text/javascript" src="<?=base_url()?>resources/js/scriptaculous/scriptaculous.js"></script>
 		<!-- YAHOO Includes -->
-		<script type="text/javascript" src="http://yui.yahooapis.com/2.4.1/build/yahoo-dom-event/yahoo-dom-event.js"></script>
-		<script type="text/javascript" src="http://yui.yahooapis.com/2.4.1/build/connection/connection-min.js"></script>
-		<script type="text/javascript" src="http://yui.yahooapis.com/2.4.1/build/container/container-min.js"></script>
-		<script type="text/javascript" src="http://yui.yahooapis.com/2.4.1/build/menu/menu-min.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/yahoo-dom-event/yahoo-dom-event.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/connection/connection-min.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/container/container-min.js"></script>
+		<script type="text/javascript" src="<?=yui_url()?>/build/menu/menu-min.js"></script>
 		
 		<script type="text/javascript">
 			transactions_open = Array();
@@ -29,10 +29,12 @@
 				
 				if (transactions_open[category]) {
 					Effect.Fade(category, {duration:1}); 
+					//$(category).hide();
 					transactions_open[category] = false;
 					$(toggle).update('<a href="javascript:void(0)" onclick="toggle_transactions(\'' + category + '\');"><img src="/resources/images/plus.png" alt="Expand Category" /></a>');
 				} else {
 					Effect.Appear(category, {duration:1}); 
+					//$(category).show();
 					transactions_open[category] = true;
 					$(toggle).update('<a href="javascript:void(0)" onclick="toggle_transactions(\'' + category + '\');"><img src="/resources/images/minus.png" alt="Collapse Category" /></a>');
 				}
@@ -71,6 +73,8 @@
 			}
 			Event.observe(window, 'load', load_categories);
 		</script>
+		
+		<? $this->load->view('base/dialogs_js.php'); ?>
 	</head>
 
 	<body class="yui-skin-sam" style="text-align: left; margin-top: 10px;">
