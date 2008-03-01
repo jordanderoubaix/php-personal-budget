@@ -238,10 +238,22 @@
 			});	
 
 			function handleAddExpense() {
-				addExpenseDialog.hide();
+				// addExpenseDialog.hide();
+				
 				var expense_amount = escape(document.forms['expense_form'].expense_amount.value);
 				var expense_description = escape(document.forms['expense_form'].expense_desc.value);
 				var expense_category_id = escape(document.forms['expense_form'].category_id.value);
+				
+				if (expense_amount == "") {
+					alert ("You must enter an amount for the expense!");
+					return false;
+				}
+				
+				if (expense_description == "") {
+					alert ("You must enter a description for the expense!");
+					return false;
+				}
+				
 				post_body = 'expense_amount=' + expense_amount + '&expense_desc=' + expense_description + '&category_id=' + expense_category_id;
 
 				var url = "<?=base_url()?>budget/addexpense/<?=$month_id?>";
@@ -312,9 +324,17 @@
 			});
 
 			function handleRenameCategory() {
-				renameCategoryDialog.hide();
+				
 				var new_name = escape(document.forms['rename_category_form'].new_name.value);
 				var category_id = document.forms['rename_category_form'].category_id.value;
+				
+				if (new_name == "") {
+					alert ("You must enter a new name for the category!");
+					return false;
+				}
+				
+				renameCategoryDialog.hide();
+				
 				var post_body = 'new_name=' + new_name + '&category_id=' + category_id;
 
 				var url = "<?=base_url()?>budget/renamecategory/<?=$month_id?>/";
