@@ -8,12 +8,12 @@
 		<!-- CSS Includes -->
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.4.1/build/reset-fonts-grids/reset-fonts-grids.css" />
 		<link rel="stylesheet" type="text/css" href="http://yui.yahooapis.com/2.4.1/build/assets/skins/sam/skin.css" />
-		<link rel="stylesheet" type="text/css" href="<?=$this->config->item('base_url')?>resources/css/main.css" />
+		<link rel="stylesheet" type="text/css" href="<?=$this->config->item('base_url')?>/resources/css/main.css" />
 
 		<!-- Script Includes -->
-		<!--script type="text/javascript" src="<?=$this->config->item('base_url')?>resources/js/json.js"></script-->
-		<script type="text/javascript" src="<?=base_url()?>resources/js/prototype.js"></script>
-		<script type="text/javascript" src="<?=base_url()?>resources/js/scriptaculous/scriptaculous.js"></script>
+		<!--script type="text/javascript" src="<?=$this->config->item('base_url')?>/resources/js/json.js"></script-->
+		<script type="text/javascript" src="<?=base_url()?>/resources/js/prototype.js"></script>
+		<script type="text/javascript" src="<?=base_url()?>/resources/js/scriptaculous/scriptaculous.js"></script>
 		<!-- YAHOO Includes -->
 		<script type="text/javascript" src="<?=yui_url()?>/build/yahoo-dom-event/yahoo-dom-event.js"></script>
 		<script type="text/javascript" src="<?=yui_url()?>/build/connection/connection-min.js"></script>
