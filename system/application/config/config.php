@@ -11,7 +11,7 @@
 |	http://www.your-site.com/
 |
 */
-$config['base_url']	= "http://" . $_SERVER['HTTP_HOST'] . "/";
+$config['base_url']	= "http://" . $_SERVER['HTTP_HOST'];
 $config['domain'] = $_SERVER['HTTP_HOST'] . "/";
 
 /*
