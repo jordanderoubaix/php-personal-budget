@@ -385,26 +385,5 @@
 				renameCategoryDialog.render();
 			});
 			
-			Event.observe(window, "load", function() {
-				deleteCategoryDialog =
-					new YAHOO.widget.Dialog("deleteCategoryDialog",
-						{	width: "350px",
-							fixedcenter: true,
-							close: true,
-							draggable: false,
-							zindex: 400,
-							modal: true,
-							visible: false });
-				deleteCategoryDialog.cfg.queueProperty("buttons", formButtons);
-				deleteCategoryDialog.cfg.queueProperty("postmethod", "async");
-				deleteCategoryDialog.callback.success = handleFormSuccess;
-
-				deleteCategoryDialog.render();
-			});	
-
-
-			//function enableProjectedIncomeDialog {
-			//	newProjectedIncomeDialog.show();
-			//}
 		// ]]> 	
 		</script>

@@ -349,8 +349,40 @@ class BudgetModel extends Model {
 		
 	}
 
-	function delete_category($category_id) {
+	function delete_category($month_id, $category_id) {
 		$this->load->database();
+
+		$unassigned_cat = $this->db->get_where('Categories', array('pretty_name' => 'Unassigned', 'month_id' => $month_id));
+		$unassigned_cat_result = $unassigned_cat->result();
+
+		if ($unassigned_cat_result[0]->category_id != $category_id) {
+
+			if (count($unassigned_cat_result) == 0) {
+				$this->db->insert('Categories', array('month_id' => $month_id, 'pretty_name' => 'Unassigned'));
+			}
+	
+			$get_unassigned = $this->db->get_where('Categories', array('pretty_name' => 'Unassigned', 'month_id' => $month_id));
+			$get_unassigned_result = $get_unassigned->result();
+	
+			echo "<pre>" . print_r($get_unassigned_result, 1) . "</pre>";
+	
+			$unassigned_id = $get_unassigned_result[0]->category_id;
+	
+			$existing_trans = $this->db->get_where('Transactions', array('category_id' => $category_id, 'month_id' => $month_id));
+			$existing_trans_result = $existing_trans->result();
+	
+			foreach($existing_trans_result as $result) {
+				$trans_data = array(
+					'month_id'		=> $month_id,
+					'category_id'	=> $unassigned_id,
+					'amount'		=> $result->amount,
+					'description'	=> $result->description,
+					'date_entered'	=> $result->date_entered
+				);
+				
+				$this->db->insert('Transactions', $trans_data);
+			}
+		}
 		
 		$data = array('category_id' => $category_id);
 		$this->db->delete('Categories', $data);

@@ -41,9 +41,14 @@
 			}
 
 			function delete_category(category_id, category_name) {
-				var answer = confirm("Are you sure you want to delete the category named '" + category_name + "'?\n\nThis will delete all transactions/expenses within " + category_name + ".");
+				var answer; 
+				if (category_name == "Unassigned") {
+					answer = confirm("Are you sure you want to delete the Unassigned category?\n\nAll transactions will be deleted.");
+				} else {
+					answer = confirm("Are you sure you want to delete the category named '" + category_name + "'?\n\nAll transactions will be moved to an Unassigned category.");
+				}
 				if (answer) {
-					var url = "<?=base_url()?>budget/deletecategory/" + category_id;
+					var url = "<?=base_url()?>budget/deletecategory/<?=$month_id?>/" + category_id;
 					new Ajax.Request(url, {
 						method: 'get',
 						onSuccess: function(transport) {
