@@ -212,6 +212,7 @@
 					postBody: post_body,
 					onSuccess: function(transport) {
 						load_categories();
+						load_summary();
 					}
 				});
 			}
@@ -238,8 +239,6 @@
 			});	
 
 			function handleAddExpense() {
-				// addExpenseDialog.hide();
-				
 				var expense_amount = escape(document.forms['expense_form'].expense_amount.value);
 				var expense_description = escape(document.forms['expense_form'].expense_desc.value);
 				var expense_category_id = escape(document.forms['expense_form'].category_id.value);
@@ -255,13 +254,14 @@
 				}
 				
 				post_body = 'expense_amount=' + expense_amount + '&expense_desc=' + expense_description + '&category_id=' + expense_category_id;
-
+				addExpenseDialog.hide();
 				var url = "<?=base_url()?>budget/addexpense/<?=$month_id?>";
 				new Ajax.Request(url, {
 					method: 'post',
 					postBody: post_body,
 					onSuccess: function(transport) {
 						load_categories();
+						load_summary();
 					}
 				});
 			}

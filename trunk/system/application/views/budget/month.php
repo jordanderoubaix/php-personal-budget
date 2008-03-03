@@ -62,16 +62,28 @@
 						$('categories').update(transport.responseText);
 					}
 				});
-				/*var request = YAHOO.util.Connect.asyncRequest('GET', url, {
-					success: function(transport) {
-						//alert(transport.responseText);
-						//var temp = document.getElementById('category_summary_content');
-						//temp.innerHTML = transport.responseText;
-						//$('categories').update(transport.responseText);
-					}
-				});*/
 			}
-			Event.observe(window, 'load', load_categories);
+
+			function load_summary() {
+				$('month_summary_content').update('<div style="width: 100%; padding-top: 15px; padding-bottom: 15px; text-align: center"><img src="/resources/images/spinner.gif" alt="Loading..." /></div>');
+				var summary_url = "<?=base_url()?>budget/loadsummary/<?=$month_id?>";
+				new Ajax.Request(summary_url, {
+					method: 'get',
+					onSuccess: function(transport) {
+						$('month_summary_content').update(transport.responseText);
+					},
+					onFailure: function(transport) {
+						alert ("Failure");
+					}
+				});
+			}
+
+			function load_info() {
+				load_summary();
+				load_categories();
+			}
+
+			Event.observe(window, 'load', load_info);
 		</script>
 		
 		<? $this->load->view('base/dialogs_js.php'); ?>
@@ -93,33 +105,12 @@
 							<div id='month_content'>
 								<!--h1><?=$month_data['month_pretty_name']?> <?=$month_data['month_year']?></h1><br /-->
 
-								<div class='month_summary'>
+								<div id='month_summary' class='month_summary'>
 									<div class='month_summary_header'><?=$month_data['month_pretty_name']?> <?=$month_data['month_year']?></div>
-									<div class='month_summary_content'>
-										<table width="100%">
-											<tr style='cursor: default;' onmouseout="style.background='#FFF';" onmouseover="style.background='#DCDCFF';">
-												<td width="200px" style='padding-left: 10px;'>Income:</td>
-												<td  align="right" style='padding-right: 10px;'>$<?=number_format($month_data['actual_income'], 2)?></td>
-											</tr>
-											<tr style='cursor: default;' onmouseout="style.background='#FFF';" onmouseover="style.background='#DCDCFF';">
-												<td style='padding-left: 10px;'>Total Spent:</td>
-												<td align="right" style='padding-right: 10px;'>$<?=number_format($month_data['total_spent'], 2)?></td>
-											</tr>
-											<tr style='cursor: default;' onmouseout="style.background='#FFF';" onmouseover="style.background='#DCDCFF';">
-												<td style='padding-right: 10px; padding-left: 10px;'>Amount Remaining:</td>
-												<?php
-												if ($month_data['amount_remaining'] > 0) {
-													echo "<td style='color: green; text-align: right; padding-right: 10px;'>";
-												} else if ($month_data['amount_remaining'] < 0) {
-													echo "<td style='color: red; text-align: right; padding-right: 10px;'>";
-												} else {
-													echo "<td style='text-align: right; padding-right: 10px;'>";
-												}
-												?>
-													$<?=number_format(abs($month_data['actual_income'] - $month_data['total_spent']), 2)?>
-												</td>
-											</tr>
-										</table>
+									<div id='month_summary_content' class='month_summary_content'>
+										<div style="width: 100%; padding-top: 15px; padding-bottom: 15px; text-align: center">
+											<img src="/resources/images/spinner.gif" alt="Loading..." />
+										</div>
 									</div>
 								</div>
 								
