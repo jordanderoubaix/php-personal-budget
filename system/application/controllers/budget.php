@@ -169,6 +169,17 @@ class Budget extends Controller {
 		$this->budget->add_this_month();
 	}
 
+	function loadsummary($month_id) {
+		$this->load->model('BudgetModel', 'budget');
+		
+		$data['month_data'] = $this->budget->get_month_data($month_id);
+		$data['available_months'] = $this->budget->get_available_months();
+		$data['categories'] = $this->budget->get_categories($month_id);
+		$data['month_id'] = $month_id;
+		//$data['month_info'] = $this->budget->get_month_info($month_id);
+		$this->load->view('budget/monthsummary', $data);
+	}
+
 }
 
 ?>
