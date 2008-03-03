@@ -14,4 +14,13 @@ Installation Instructions:
 
 3. Change the database setting in system/application/config/database.php.
 
-4. Go to http://<YOUR_DOMAIN OR SUBDOMAIN>/install and follow the instructions.
+4. Create an .htaccess file in you domain base directory and enter the following:
+
+	<IfModule mod_rewrite.c>
+		RewriteEngine On
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteRule ^(.*)$  index.php/$1 [L]
+	</IfModule> 
+
+5. Go to http://<YOUR_DOMAIN OR SUBDOMAIN>/install and follow the instructions.
