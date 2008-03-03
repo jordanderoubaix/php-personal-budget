@@ -321,8 +321,16 @@ class BudgetModel extends Model {
 		$this->db->insert('Transactions', $data);
 	}
 	
-	function create_category($month_id) {
+	function create_category($month_id, $category_name) {
 		$this->load->database();
+		
+		$check_result = $this->db->get_where('Categories', array('month_id' => $month_id, 'pretty_name' => $category_name));
+		$check_result = $check_result->result();
+		
+		if (count($check_result) != 0) {
+			echo "{ code: " . DUPLICATE_CATEGORY . ", errMessage: 'You have entered a duplicate category' }";
+			return;
+		} 
 		
 		$data = array('pretty_name' => $_POST['newcategory'],'month_id' => $month_id);
 		$this->db->insert('Categories', $data);
@@ -336,6 +344,8 @@ class BudgetModel extends Model {
 		
 		$data = array('budget_amount' => $_POST['newcatbudget'], 'month_id' => $month_id, 'category_id' => $query_result->category_id);
 		$this->db->insert('BudgetEntries', $data);
+		
+		echo "{ code: " . ADDED_CATEGORY . " }";
 		
 	}
 

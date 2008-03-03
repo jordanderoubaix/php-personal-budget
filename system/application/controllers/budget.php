@@ -121,7 +121,7 @@ class Budget extends Controller {
 		$this->budget->submit_expense();
 	}
 	
-	function addcategory($month_id) {
+	function addcategory($month_id, $category_name) {
 		$this->load->model('BudgetModel', 'budget');
 		
 		$this->budget->create_category($month_id);
@@ -168,6 +168,7 @@ class Budget extends Controller {
 
 		$this->budget->add_this_month();
 	}
+
 }
 
 ?>
