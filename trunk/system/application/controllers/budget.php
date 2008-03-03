@@ -133,10 +133,10 @@ class Budget extends Controller {
 		$this->budget->submit_expense($month_id);
 	}
 
-	function deletecategory($category_id) {
+	function deletecategory($month_id, $category_id) {
 		$this->load->model('BudgetModel', 'budget');
 
-		$this->budget->delete_category($category_id);
+		$this->budget->delete_category($month_id, $category_id);
 	}
 
 	function renamecategories() {

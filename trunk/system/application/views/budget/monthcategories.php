@@ -17,8 +17,17 @@
 ?>
             <tr class='category_item'>
 <?php } ?>
+
 				<td width="25px"><img src="/resources/icons/cross.png" style="cursor: pointer" onclick="delete_category(<?=$id?>, '<?=addslashes($category["category_pretty_name"])?>');" title="Delete <?=$category["category_pretty_name"]?>" /></td>
+<?php		
+			if ($category["category_pretty_name"] == "Unassigned") {
+?>
+				<td width="25px"><img src="/resources/icons/folder_edit_disabled.png" /></td>
+<?php
+			} else {
+?>
 				<td width="25px"><img src="/resources/icons/folder_edit.png" style="cursor: pointer" onclick="enableRenameCategoryDialog(<?=$id?>, '<?=addslashes($category["category_pretty_name"])?>');" title="Rename <?=addslashes($category["category_pretty_name"])?>" /></td>
+<?php } ?>
 				<td><div style="width: 1px; height: 12px; background: #999"></div></td>
                 <td width="25px"><img src="/resources/icons/money.png" style="cursor: pointer" onclick="enableAddExpenseDialog('<?=addslashes($category["category_pretty_name"])?>', <?=$id?>)" title="Add an Expense to <?=$category["category_pretty_name"]?>" /></td>
 				<td><div style="width: 1px; height: 12px; background: #999"></div></td>
