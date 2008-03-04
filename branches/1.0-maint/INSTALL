@@ -1,0 +1,26 @@
+PHP Personal Budget
+-------------------------------------------------
+PHP Personal Budget has been developed using PHP 5 and MySQL 5. It has not
+yet been tested in PHP 4 but since we are using Code Igniter as the underlying
+framework it should work for PHP 4. If it does not, please submit a bug 
+letting us know where you run into problems and we will look into the issue.
+
+
+Installation Instructions:
+-------------------------------------------------
+1. Make sure you have created a database to use for PHP Personal Budget.
+
+2. PHP Personal Budget works best if it is in the base of the domain or sub-domain.
+
+3. Change the database setting in system/application/config/database.php.
+
+4. Create an .htaccess file in you domain base directory and enter the following:
+
+	<IfModule mod_rewrite.c>
+		RewriteEngine On
+		RewriteCond %{REQUEST_FILENAME} !-f
+		RewriteCond %{REQUEST_FILENAME} !-d
+		RewriteRule ^(.*)$  index.php/$1 [L]
+	</IfModule> 
+
+5. Go to http://<YOUR_DOMAIN OR SUBDOMAIN>/install and follow the instructions.

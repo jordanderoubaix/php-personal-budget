@@ -1,0 +1,518 @@
+body
+{
+	margin:0 0px;
+	color: #3366cc;
+}
+
+h1
+{
+	margin: 0;
+	font-size: 160%;
+}
+
+h2
+{
+	margin: 0;
+	font-size: 150%;
+}
+
+h3
+{
+	margin: 0;
+	font-size: 140%;
+}
+
+h4
+{
+	margin: 0;
+	font-size: 130%;
+}
+
+h5
+{
+	margin: 0;
+	font-size: 120%;
+}
+
+h6
+{
+	margin: 0;
+	font-size: 110%;
+}
+
+/*th,td
+{
+	border:none;
+	padding:0.1em;
+}*/
+
+a {
+	text-decoration: none;
+	color: #264D99;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+.trans_li {
+	padding-left: 0px;
+}
+
+.trans_description {
+	padding-left: 10px;
+}
+
+.trans_amount {
+	padding-right: 10px;
+}
+
+#budget-tabs
+{
+	margin:10px;
+}
+
+#month-menu {
+	position: absolute;
+	top: 10px;
+	left: 10px;
+}
+
+/*#month_content {
+	position: absolute;
+	top: 10px;
+	left: 240px;
+	right: 10px;
+	text-align: left;
+	border: 1px black solid;
+	min-height: 200px;
+}*/
+
+#budget_tree {
+	padding-left: 25px;
+}
+
+.desc_th {
+	width: 200px;
+	font-weight: bold;
+	border-bottom: 1px #ccc dotted;
+}
+
+#month_accordion .desc_th {
+	width: 400px;
+}
+
+.amt_th {
+	width: 75px;
+	font-weight: bold;
+	border-bottom: 1px #ccc dotted;
+	text-align: right;
+}
+
+.textbox {
+	padding-left: 3px;
+}
+
+.dialogtable {
+	border: none;
+}
+
+.dialogtable  {
+	padding: 2px 2px 2px 2px;
+}
+
+.dialog_label {
+	padding-right: 3px;
+	padding-bottom: 2px;
+}
+
+.dialog_input {
+	padding-bottom: 3px;
+}
+
+.odd_row
+{
+	background-color:#426FD9;
+	color:#FFF;
+}
+
+.even_row
+{
+	background-color:#2647A0;
+	color:#FFF;
+}
+
+.month_summary, .category_summary {
+	/*border-top: solid 1px black;*/
+	border-bottom: solid 1px #143C78;
+	margin-bottom: 10px;
+}
+
+.month_summary_header, .category_summary_header {
+	font-size: 123.1%;
+	line-height: 25px;
+	/*ckground-color: #6699EE;*/
+	padding-left: 10px;
+	/*border-bottom: solid 1px #888;*/
+	color: #3366cc;
+	font-weight: bold;
+	background: transparent url(/resources/images/content_headers_gradient.png) repeat-x scroll 0%;
+}
+
+.month_summary_content {
+	/*padding-left: 10px;*/
+}
+
+.category_summary_content {
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.category_summary_content td a:hover {
+	color: blue;	
+	background: none;
+	font-weight: normal;
+}
+
+/*th
+{
+	background:url('http://dansworkshop.net/budgettest/resources/images/navbar_bg.png');
+	border-bottom:1px #000 solid;
+}
+
+.category
+{
+	font-weight:700;
+	text-align:left !important;
+	width:150px;
+}
+
+.budgeted,.spent,.remaining
+{
+	text-align:right;
+	width:140px;
+}*/
+
+.break_even
+{
+	color:#000;
+}
+
+.currency
+{
+	text-align:right !important;
+}
+
+.currency-bold
+{
+	font-weight:700;
+	text-align:right !important;
+}
+
+.error
+{
+	color:red;
+	font-weight:700;
+}
+
+.success
+{
+	color:green;
+	font-weight:700;
+}
+
+.income
+{
+	border:none;
+}
+
+.success-message
+{
+	background-color:#CFD;
+	border:solid 1px green;
+	color:green;
+	margin-bottom:100px;
+	padding:2px;
+}
+
+.error-message
+{
+	background-color:#FCE;
+	border:solid 1px red;
+	color:red;
+	margin-bottom:10px;
+	padding:2px;
+}
+
+/*.yui-dt-col-Budgeted
+{
+	text-align:right;
+}
+
+table
+{
+	border:1px solid #000;
+}*/
+
+#main_menu .yuimenu {
+	border: none;
+}
+
+.yui-skin-sam .yuimenu .bd {
+	border: none;
+}
+
+.yui-skin-sam .yuimenu h6,
+.yui-skin-sam .yuimenuitemlabel {
+	text-align: left;
+}
+
+.yui-skin-sam .yuimenuitemlabel{
+	color: #2C3AE3;
+	padding-left: 10px;
+}
+
+.yui-skin-sam .bd a:hover {
+	color: white;
+	/*font-weight: bold;*/
+	/*text-decoration: underline;*/
+	cursor: pointer;
+	/*background:transparent url(/resources/images/navbar_bg.png) repeat-x;*/
+	background: #3366cc;
+}
+
+.yui-skin-sam .yui-navset .yui-nav li,.yui-skin-sam .yui-navset .yuinavset-top .yui-nav li
+{
+	line-height:0.90;
+}
+
+.yui-skin-sam th.yui-dt-asc,.yui-skin-sam th.yui-dt-desc
+{
+	background:transparent url(/resources/images/navbar_bg.png) repeat-x scroll 0 -100px;
+}
+
+.yui-skin-sam .yui-dt-table th
+{
+	background:transparent url(/resources/images/navbar_bg.png) repeat-x;
+}
+
+.yui-skin-sam .yui-menu-shadow-visible {
+	visibility: hidden;
+}
+
+.yui-skin-sam .yuimenuitem a.selected {
+	background:transparent url(/resources/images/navbar_bg.png) repeat-x;
+}
+
+.yui-skin-sam .yuimenu h6, .yui-skin-sam .yui-g h6 {
+	background: transparent url(/resources/images/content_headers_gradient.png) repeat-x;
+	color: #3366cc;
+	line-height: 25px;
+	padding: 0 0 0 10px;
+	border: none;
+}
+
+.debt,.non_debt,.break_even,.green-money,.red-money,.remaining,.bold-text
+{
+	font-weight:700;
+}
+
+.debt,.red-money
+{
+	color:red;
+}
+
+.non_debt,.green-money
+{
+	color:green;
+}
+
+.yui-skin-sam .mask {
+	/*background-color: #001E4C;*/
+	/*background-color: #fff;*/
+	opacity: 0.50;
+}
+
+/****************************
+ *** Accordion Stuff ********
+ ****************************/
+#accordion {
+	position: absolute;
+	width: 200px;
+	text-align: left;
+	left: 10px;
+	top: 10px;
+	/*padding-left: 5px;*/
+	/*border: 2px solid black;*/
+}
+
+#accordion li {
+	
+}
+
+.toggler {
+	display: block;
+	height: 30px;
+	width: 200px;
+	background: url(/resources/images/toggler_gradient.png) repeat-x;
+	/*padding: 0 0px 0 10px;*/
+	padding-left: 10px;
+	line-height: 30px;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	outline: none;
+	font-size: 116%;
+	color: #ffffff;
+	border-bottom: 1px solid white;
+	cursor: pointer;
+	margin: 0 0 0 0;
+}
+
+#month_accordion .toggler {
+	width: 400px;
+}
+
+.togglee {
+	/*border-top: 2px black solid;
+	border-bottom: 3px black solid;*/
+}
+
+ul {
+	/*padding: 0 0px 0 0px;*/
+	/*padding-right: 5px;*/
+	/*width: 200px;*/
+	/*background-color: #fef5bf;*/
+}
+
+.yui-skin-sam .yuimenu ul {
+	border: none;
+}
+
+#month_accordion ul {
+	width: 400px;
+}
+
+#month_accordion .toggler_table {
+	background: url(/resources/images/green_toggler_gradient.png) repeat-x;
+	/*background: url(http://developer.yahoo.com/yui/build/treeview/assets/skins/sam/treeview-sprite.gif) 0 -4800px no-repeat;*/
+	
+	/*border-bottom: 2px #aaa solid;*/
+	height: 25px;
+	line-height: 25px;
+}
+
+#month_accordion .toggler {
+	background:none;
+	height: 25px;
+	line-height: 25px;
+	color: black;
+}
+
+.togglee li {
+	padding-left: 10px;
+	width: 200px;
+	line-height: 20px;
+	border-bottom: 1px dotted #aaa;
+}
+
+#month_accordion .togglee li {
+	padding-left: 2px;
+	width: 200px;
+	line-height: 20px;
+	border-bottom: none;
+}
+
+#month_accordion .togglee li {
+	width: 500px;
+}	
+
+#doc3 #hd {
+	margin-bottom: 10px;
+	/*border-top: 1px black solid;
+	border-bottom: 1px black solid;*/
+	background: transparent url(/resources/images/header_gradient.png) repeat-x;
+	line-height: 48px;
+	padding: 5px 0 5px 10px;
+	font-size: 182%;
+	font-weight: bold;
+	color: #fff;
+}
+
+#doc3 #hd h1 {
+	color: #fff;
+}
+
+.yui-t2 {
+	position: absolute;
+	top: 10px;
+	right: 0px;
+	left: 0px;
+}
+
+#categories h1 {
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+
+.category_item {
+	font-size: 108%;
+	/*border-top: 1px dotted black;*/
+}
+
+.first_category_item {
+	border: none;
+}
+
+.category_item td {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left: 7px;
+}
+
+.trans_description {
+	min-width: 500px;
+}
+
+.trans_item td {
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 7px;
+}
+
+.editor_ok_button {
+	width: 50px;
+	background:transparent url(/resources/images/navbar_bg.png) repeat-x;
+	border: 1px solid #ccc;
+}
+
+.editor_field {
+	border: 1px solid #ccc;
+	text-align: right;
+	margin-bottom: 3px;
+	line-height: 24px;
+	padding-top: 2px;
+	padding-bottom: 2px;
+	font-size: 108%;
+}
+
+.cat_sep {
+	/*background: transparent url(/resources/images/row_sep.png) repeat-x;*/
+	background: transparent url(/resources/images/cat_sep.png) repeat-x;
+	height: 1px;
+}
+
+.row_sep {
+	background: transparent url(/resources/images/row_sep.png) repeat-x;
+	height: 1px;
+}
+
+.budget_total {
+	background: transparent url(/resources/images/budget_total_gradient.png) repeat-x;
+	line-height: 25px;
+	padding-bottom: 0px;
+}
+
+.transactions {
+	background: transparent url(/resources/images/trans_gradient.png) repeat-x bottom;
+}
