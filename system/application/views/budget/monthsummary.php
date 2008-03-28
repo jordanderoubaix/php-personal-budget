@@ -11,11 +11,17 @@
 												<td style='padding-right: 10px; padding-left: 10px;'>Amount Remaining:</td>
 												<?php
 												if ($month_data['amount_remaining'] > 0) {
-													echo "<td style='color: green; text-align: right; padding-right: 10px;'>";
+												?>
+													<td style='color: green; text-align: right; padding-right: 10px;'>
+												<?php
 												} else if ($month_data['amount_remaining'] < 0) {
-													echo "<td style='color: red; text-align: right; padding-right: 10px;'>";
+												?>
+													<td style='color: red; text-align: right; padding-right: 10px;'>
+												<?php
 												} else {
-													echo "<td style='text-align: right; padding-right: 10px;'>";
+												?>
+													<td style='text-align: right; padding-right: 10px;'>
+												<?php
 												}
 												?>
 													$<?=number_format(abs($month_data['actual_income'] - $month_data['total_spent']), 2)?>

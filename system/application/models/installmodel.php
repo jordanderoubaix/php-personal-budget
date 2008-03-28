@@ -20,10 +20,11 @@ class InstallModel extends Model {
 		$tables = array('BudgetEntries', 'Categories', 'Income', 'Months', 'Transactions');
 		$given_tables = array();
 		
-		foreach($query->result() as $row) {
-			$given_tables[] = $row->Tables_in_tester;
-		}
+		$db_tables_string = "Tables_in_" . $this->db->database;
 		
+		foreach($query->result() as $row) {
+			$given_tables[] = $row->$db_tables_string;
+		}
 		
 		$int_array = array_diff($tables, $given_tables);
 		
