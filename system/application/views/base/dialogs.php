@@ -42,7 +42,7 @@
 						<tr>
 							<td align='right'>Select a Month:</td>
 							<td>
-								<select name='month_id'>
+								<select name='month_id' id='add_income_month_id'>
 									<?php
 										foreach($available_months as $month) {
 											print '<option value="' . $month->month_id . '">';
@@ -56,7 +56,7 @@
 						<tr>
 							<td>Income Amount:</td>
 							<td>
-								<input type='text' name='income_amount' />
+								<input type='text' name='income_amount' id='add_income_amount' />
 							</td>
 						</tr>
 					</table>
