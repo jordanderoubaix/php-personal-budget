@@ -158,8 +158,38 @@
 						  	modal: true,
 						  	visible: false });
 						  	
+				var projectedIncomeDialogButtons = [	{ text:"Submit", handler:handleProjectedIncome },
+														{ text:"Cancel", handler:handleFormCancel }	];
+													
+				newProjectedIncomeDialog.cfg.queueProperty("buttons", projectedIncomeDialogButtons);
+				newProjectedIncomeDialog.cfg.queueProperty("postmethod", "async");
+				newProjectedIncomeDialog.callback.success = handleFormSuccess;
+						  	
 				newProjectedIncomeDialog.render();
 			});
+			
+			function handleProjectedIncome() {
+				
+				if($('newprojectedincome').value == "") {
+					alert ("You must enter a new projected income amount!");
+					return false;
+				}
+				newProjectedIncomeDialog.hide();
+				
+				var month_id = escape($('projected_income_month_id').value);
+				var projected_amount = escape($('newprojectedincome').value);
+				var post_body = "month_id=" + month_id + "&projected_amount=" + projected_amount;
+				var url = "<?=base_url()?>budget/changeprojectedincome";
+				
+				new Ajax.Request(url, {
+					method: 'post',
+					postBody: post_body,
+					onSuccess: function(transport) {
+						load_categories();
+						load_summary();
+					}
+				});
+			}
 					
 			Event.observe(window, "load", function() {
 				addIncomeDialog =
