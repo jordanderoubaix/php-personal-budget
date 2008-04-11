@@ -180,6 +180,11 @@ class Budget extends Controller {
 		$this->load->view('budget/monthsummary', $data);
 	}
 
+	function changeprojectedincome() {
+		$this->load->model('BudgetModel', 'budget');
+		
+		$this->budget->update_projected_income();
+	}
 }
 
 ?>

@@ -11,17 +11,21 @@
 						<tr>
 							<td align='right'>Select a Month:</td>
 							<td>
-								<select>
-									<option>January</option>
-									<option>February</option>
-									<option>March</option>
+								<select name='month_id' id='projected_income_month_id'>
+									<?php
+										foreach($available_months as $month) {
+											print '<option value="' . $month->month_id . '">';
+											print $month->pretty_name . ' ' . $month->year;
+											print '</option>';
+										}
+									?>
 								</select>
 							</td>
 						</tr>
 						<tr>
 							<td align='right'>New Projected Income:</td>
 							<td>
-								<input type='text' name='newprojincome' />
+								<input type='text' name='newprojincome' id='newprojectedincome' />
 							</td>
 						</tr>
 					</table>
