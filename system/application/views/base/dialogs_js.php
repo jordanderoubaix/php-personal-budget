@@ -172,12 +172,36 @@
 						  	modal: true,
 						  	visible: false });
 						  	
-				addIncomeDialog.cfg.queueProperty("buttons", formButtons);
+				var incomeDialogButtons = [	{ text:"Submit", handler:handleAddIncome },
+											{ text:"Cancel", handler:handleFormCancel }	];
+						  	
+				addIncomeDialog.cfg.queueProperty("buttons", incomeDialogButtons);
 				addIncomeDialog.cfg.queueProperty("postmethod", "async");
 				addIncomeDialog.callback.success = handleFormSuccess;
 						  	
 				addIncomeDialog.render();	
 			});	  	
+			
+			function handleAddIncome() {
+				addIncomeDialog.hide();
+				if ($('add_income_amount').value == "") {
+					alert ("You must put an amount into the 'Income Amount'");
+				}
+				
+				var month_id = escape($('add_income_month_id').value);
+				var income_amount = escape($('add_income_amount').value);
+				var post_body = "month_id=" + month_id + "&income_amount=" + income_amount;
+				var url = "<?=base_url()?>budget/monthaddincome";
+				
+				new Ajax.Request(url, {
+					method: 'post',
+					postBody: post_body,
+					onSuccess: function(transport) {
+						load_categories();
+						load_summary();
+					}
+				});
+			}
 				
 			Event.observe(window, "load", function() {
 				updateCategoryBudgetDialog =
