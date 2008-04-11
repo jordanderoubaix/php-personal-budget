@@ -120,7 +120,7 @@
 								</div>
 								
 								<div class='category_summary'>
-									<div class='category_summary_header'>Categories <img src="/resources/icons/add.png" onclick="enableAddCategoryDialog()" style="cursor: pointer" title="Add a New Category" alt="Add a New Category" /></div>
+									<!-- div class='category_summary_header'>Categories <img src="/resources/icons/add.png" onclick="enableAddCategoryDialog()" style="cursor: pointer" title="Add a New Category" alt="Add a New Category" /></div -->
 									
 									<div id='categories' class='category_summary_content'>
 										<div style="width: 100%; padding-top: 50px; padding-bottom: 50px; text-align: center">
@@ -131,55 +131,6 @@
 								<?php
 									//$this->debug->dumpData($month_data['categories']);
 								?>
-								<!--div id='month_accordion'>
-									<ul>
-										<?php
-											foreach($month_data['categories'] as $id => $category) {
-												echo "<li>";
-												echo "<table class='toggler_table' width='500'><tr><td width='100%'><div id='edit_" . $id . "' class='toggler'>" . $category['category_pretty_name'] . "</div></td><td width='50' style='padding-right: 10px'>\$" . number_format($category['budget_amount'], 2) . "</td></tr></table>";
-												//echo "<div class='toggler'>" . $category['category_pretty_name'] . "</div>";
-												
-												echo "<ul class='togglee'>";
-												if (isset($category['transactions'])) {
-													echo "<li class='trans_li'>";
-													$category_html = "";
-													$category_html .= "<table>";
-													$category_html .= "<tr>";
-													if (count($category['transactions']) == 0) {
-														$category_html .= "<td colspan=2>No Transactions</td>";
-														$category_html .= "</tr>";
-													} else {
-														$category_html .= "<th class='desc_th trans_description'>Description</th>";
-														$category_html .= "<th class='amt_th trans_amount'>Amount</th>";
-														$category_html .= "</tr>";
-														
-														
-														foreach($category['transactions'] as $transaction) {
-															$category_html .= "<tr>";
-															$category_html .= "<td class='trans_description'>";
-															$category_html .= $transaction['description'];
-															$category_html .= "</td>";
-															$category_html .= "<td align='right' class='trans_amount'>";
-															$category_html .= "\$" . number_format($transaction['amount'],2);
-															$category_html .= "</td>";
-															$category_html .= "</tr>";
-														}
-													}
-													$category_html .= "</table>";
-													echo $category_html;
-													echo "</li>";
-												} else {
-													echo "<li>";
-													echo "<table><tr><td>No Transactions for this Category</td></tr></table>";
-													echo "</li>";
-												}
-												echo "</ul>";
-												echo "</li>";
-											}
-										?>
-									</ul>
-								</div-->
-
 							</div>
 							<!-- YOUR DATA GOES HERE --> 
 						</div> 
