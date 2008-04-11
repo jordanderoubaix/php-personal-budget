@@ -456,6 +456,14 @@ class BudgetModel extends Model {
 			echo "{ code : " . MONTH_EXISTS . " }";
 		}
 	}
+	
+	function update_projected_income() {
+		$month_id = $_POST['month_id'];
+		$projected_amount = $_POST['projected_amount'];
+		
+		$this->db->where('month_id', $month_id);
+		$this->db->update('Months', array('projected_income' => $projected_amount));
+	}
 }
 
 ?>
