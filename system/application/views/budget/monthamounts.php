@@ -55,7 +55,7 @@
 				if ($actual_remaining < 0) {
 					echo '<span class="debt">$' . number_format(abs($actual_remaining), 2) . '</span>';
 				} else if ($actual_remaining > 0) {
-					 echo '<span class="non_debt">$' . number_format($actual_remaining, 2) . '</span>';
+					echo '<span class="non_debt">$' . number_format($actual_remaining, 2) . '</span>';
 				} else {
 					echo '<span class="break_event">$' . number_format($actual_remaining, 2) . '</span>';
 				}

@@ -14,6 +14,7 @@
 <?php
 	$first = TRUE;
 	$budget_total = 0;
+	//$trans_total = 0;
 	if (isset($month_data['categories'])) {
 		foreach ($month_data['categories'] as $id => $category) {
 			if (isset($category['budget_amount'])) {
@@ -50,7 +51,7 @@
                 <td width="25px"><img src="/resources/icons/money.png" style="cursor: pointer" onclick="enableAddExpenseDialog('<?=addslashes($category["category_pretty_name"])?>', <?=$id?>)" title="Add an Expense to <?=$category["category_pretty_name"]?>" /></td>
 				<td><div style="width: 1px; height: 12px; background: #999"></div></td>
 				<td id="tog_trans_<?=$id?>"><a href="javascript:void(0)" onclick="toggle_transactions('trans_<?=$id?>');"><img src="/resources/images/plus.png" /></a></td>
-				<td width="100%'><a href="javascript:void(0)" onclick="toggle_transactions('trans_<?=$id?>');"><?=$category['category_pretty_name']?></a></td>
+				<td width="100%"><a href="javascript:void(0)" onclick="toggle_transactions('trans_<?=$id?>');"><?=$category['category_pretty_name']?></a></td>
                 <td width="300px" style='text-align: right'>
                 	<p id="cat_<?=$id?>" style="text-align: right; padding-right: 10px;">
                 		<?php
@@ -102,7 +103,7 @@
 							$first_trans = TRUE;
 							$trans_total = 0;
 							foreach($category['transactions'] as $trans) {
-								//$trans_total += $trans['amount'];
+								$trans_total += $trans['amount'];
 								if ($first_trans) {
 						?>
 									<tr class="row_sep">
